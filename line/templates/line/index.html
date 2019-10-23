@@ -1,0 +1,53 @@
+{% extends 'line/base.html' %}
+{% block body %}
+<button type="button" class="btn btn-success" id="add-line" data-toggle="modal" data-target="#myModal">Add
+    busline</button> <br><br>
+<hr>
+{% for line in lines %}
+<div class="row">
+    <div class="col-md-2">
+        {{line.name}}
+    </div>
+    <div class="col-md-2">
+        {{line.line_number}}
+    </div>
+    <div class="col-md-2">
+        <a href="{% url 'line:line_details' %}"><button class="btn btn-info">Details
+            </button></a>
+    </div>
+    <div class="col-md-2">
+        <span class="glyphicon glyphicon-edit"></span>
+    </div>
+    <div class="col-md-2">
+        <span class="glyphicon glyphicon-remove"></span></div>
+    <div class="col-md-2">
+        <p>some text</p>
+    </div>
+</div>
+{%endfor%}
+<hr>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form}}
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

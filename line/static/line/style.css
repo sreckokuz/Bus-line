@@ -1,0 +1,13 @@
+body {
+    background-color: lightyellow
+}
+#add-line {
+    float: right;
+    margin-right:70px; 
+    margin-bottom: 0px;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
