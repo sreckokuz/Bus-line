@@ -9,7 +9,6 @@ function initMap() {
     //get all json Station data and pares it
     var jsonStationData = document.getElementById('station').innerHTML;
     var allData = JSON.parse(jsonStationData);
-    console.log(allData)
     //get all json Line data and pares it
     var jsonLineData = document.getElementById('line').innerHTML;
     var allLines = JSON.parse(jsonLineData);
@@ -38,7 +37,7 @@ function initMap() {
     for (i = 0; i < arrayOfArrayOfLatLngPairs.length; i++) {
         arrayOfLatLngPairs.push(arrayOfArrayOfLatLngPairs[i].val);
     }
-    console.log(arrayOfLatLngPairs);
+    //console.log(arrayOfLatLngPairs);
     var routePath = [];
     for (l = 0; l < arrayOfLatLngPairs.length; l++) {
         routePath[l] = new google.maps.Polyline({
@@ -49,11 +48,6 @@ function initMap() {
             strokeWeight: 2
         });
         routePath[l].setMap(map);
-
     }
 
 }
-
-// function changeValue() {
-//     document.getElementById('srk2').innerHTML = 'promjena';
-// }

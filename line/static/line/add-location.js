@@ -38,7 +38,7 @@ function initMap() {
         document.getElementById(`id_lat${p}`).value = Number(lat.toFixed(4));
         document.getElementById(`id_lng${p}`).value = Number(lng.toFixed(4));
     });
-} s
+}
 
 function removeLatLng() {
     document.getElementById('id_lat1').value = '';
