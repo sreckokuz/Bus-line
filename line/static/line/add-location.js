@@ -33,13 +33,10 @@ function initMap() {
         //console.log(event.latLng.lat(), event.latLng.lng())
         var lat = event.latLng.lat();
         var lng = event.latLng.lng();
-        lat = lat.toFixed(4);
-        lng = lng.toFixed(4);
-        console.log(lat, lng);
+
         p = document.getElementById('demo').innerHTML;
-        console.log(p);
-        document.getElementById(`id_lat${p}`).value = lat;
-        document.getElementById(`id_lng${p}`).value = lng;
+        document.getElementById(`id_lat${p}`).value = Number(lat.toFixed(4));
+        document.getElementById(`id_lng${p}`).value = Number(lng.toFixed(4));
     });
 } s
 

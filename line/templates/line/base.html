@@ -26,8 +26,9 @@
                 </a>
             </div>
             <ul class="nav navbar-nav">
+                <li class=""><a href="{% url 'line:index_page' %}">All lines</a></li>
                 <li class=""><a href="{% url 'line:create_line' %}">Create bus line</a></li>
-                <li><a href="{% url 'line:line_details' %}">Show all lines</a></li>
+                <li><a href="{% url 'line:line_details' %}">Show on map</a></li>
             </ul>
         </div>
     </nav>

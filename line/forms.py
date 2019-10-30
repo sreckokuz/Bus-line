@@ -3,16 +3,17 @@ from . models import Line, Station
 
 
 class LineForm(forms.ModelForm):
+    # styling input fields
     name = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control', 'placeholder': 'Hello world'}))
+        attrs={'class': 'form-control'}))
     line_number = forms.IntegerField(
         widget=forms.TextInput(attrs={'class': 'form-control'}))
-    night_route = forms.BooleanField(
-        widget=forms.TextInput(attrs={'type': 'checkbox', 'class': 'form-check-input'}))
+    distance = forms.IntegerField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Distance in [km]'}))
 
     class Meta:
         model = Line
-        fields = ['name', 'line_number', 'night_route']
+        fields = ['name', 'line_number', 'distance']
 
 
 class StationForm(forms.ModelForm):
@@ -21,7 +22,7 @@ class StationForm(forms.ModelForm):
         fields = ['lat', 'lng', 'station_name', ]
 
 
-class ContactForm(forms.Form):
+class AdditionalForm(forms.Form):
     station_name = forms.CharField(max_length=30, min_length=3)
     lat = forms.DecimalField(decimal_places=4, max_digits=10)
     lng = forms.DecimalField(decimal_places=4, max_digits=10)
