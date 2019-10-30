@@ -1,15 +1,16 @@
 {% extends 'line/base.html' %}
 {% block body %}
-<h1>My google map</h1>
+<p>Different color of the route tells which station belongs to which route</p>
 <div id="map"></div>
-{% for item in items  %}
-{{item.station_name}}
-{% endfor %}
+<p id="station">{{stations}}</p>
+<p id="line">{{lines}}</p>
+<!-- <button onclick="changeValue()">Click</button>
+<p id=" srk2">Srkomanijak</p> -->
 {% endblock %}
 {% block scripts %}
 
 
-<script src="/static/line/googlemap.js"></script>
+<script src="/static/line/all-routes.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-Lz7C_9hBWQ7G2XBFVm8VFRZ_xSvG3lM&callback=initMap" async
     defer></script>
 {% endblock %}

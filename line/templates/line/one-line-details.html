@@ -1,0 +1,21 @@
+{% extends 'line/base.html' %}
+{% block body %}
+<p>Line name: <b>{{lines.name}}</b></p>
+<p>Line number: <b>{{lines.line_number}}</b></p>
+<p>Line stations:<b>
+        {%for  station in lstations%}
+        {{ station.station_name }},
+        {% endfor %}</b>
+
+
+    <div id="map"></div>
+    <p id="station">{{stations}}</p>
+    <p id="line">{{count}}</p>
+    <!-- <button onclick="changeValue()">Click</button>
+<p id=" srk2">Srkomanijak</p> -->
+    {% endblock %}
+    {% block scripts %}
+    <script src="/static/line/one-line-details.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-Lz7C_9hBWQ7G2XBFVm8VFRZ_xSvG3lM&callback=initMap"
+        async defer></script>
+    {% endblock %}

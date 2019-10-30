@@ -1,0 +1,61 @@
+{% extends 'line/base.html' %}
+{% block body %}
+<form method="POST" action="save">
+    {% csrf_token %}
+    <div id="items">
+        {%csrf_token%}
+        <!-- <input type="text" name="user1">
+        <input type="text" name="user2"> -->
+        {{ line_form }}
+        <br><br><input type="button" class="btn btn-success" value="Add one more station" id="add">
+        <br><br>
+        {{station_form}}
+
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Open
+            GoogleMap</button>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="map"></div>
+                        <p id="demo"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Add this
+                            location</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                            onclick="removeLatLng()">Close</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <input type="submit" class="btn btn-primary" value="Save all">
+
+</form>
+{% endblock %}
+
+
+{% block scripts %}
+<script src="/static/line/add-station.js"></script>
+<script src="/static/line/add-location.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-Lz7C_9hBWQ7G2XBFVm8VFRZ_xSvG3lM&callback=initMap" async
+    defer></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+{% endblock %}

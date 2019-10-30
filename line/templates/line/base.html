@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
 
     {% block style %}
     <link rel="stylesheet" href="{% static 'line/style.css' %}">
@@ -17,15 +19,15 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">WebSiteName</a>
+                <a class="navbar-brand" href="{% url 'line:index_page' %}">
+                    <div class="logo-image">
+                        <img src="{% static 'line/image001.jpg' %}" class="">
+                    </div>
+                </a>
             </div>
             <ul class="nav navbar-nav">
-                <li class=""><a href="#">Show bus lines</a></li>
-                <li><a href="#">Add buss line</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class=""></span>Show bus lines</a></li>
-                <li><a href="#"><span class=""></span> Login</a></li>
+                <li class=""><a href="{% url 'line:create_line' %}">Create bus line</a></li>
+                <li><a href="{% url 'line:line_details' %}">Show all lines</a></li>
             </ul>
         </div>
     </nav>

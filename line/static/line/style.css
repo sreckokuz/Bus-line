@@ -8,6 +8,25 @@ body {
 }
 
 #map {
-    height: 400px;
+    height: 500px;
     width: 100%;
+}
+
+#station {
+    display: none;
+}
+#line {
+    display: none;
+}
+#line-list p {
+    text-align: center;
+}
+.glyphicon-remove {
+    cursor:pointer;
+}
+.glyphicon-edit {
+    cursor:pointer;
+}
+.logo-image img{
+    height: 30px;
 }
