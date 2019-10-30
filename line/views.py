@@ -44,10 +44,10 @@ def save_stations(request):
             obj = Station(lat=lats[i], lng=lngs[i],
                           station_name=station_name[i], line=object)
             obj.save()
-        # else:
-        #     raise ValidationError(
-        #         "Sorry, the email submitted is invalid. All emails have to be registered on this domain only.")
-    # print(lats, lngs, station_name, is_nigt_route, line_number, line_name)
+        else:
+            raise ValidationError(
+                "Sorry, the email submitted is invalid. All emails have to be registered on this domain only.")
+    print(lats, lngs, station_name, is_nigt_route, line_number, line_name)
     return redirect('line:index_page')
 
 
@@ -62,13 +62,16 @@ def delete(request, id):
 def edit(request, id):
     item = Line.objects.get(id=id)
     form = LineForm(request.POST or None, instance=item)
+    if form.is_valid():
+        form.save()
+    messages.success(request, 'Edited')
     return render(request, 'line/update.html', {'item': item, 'form': form})
 
 
 # save bus line. I had to work like this because form for input is tied to two models Line and Stations
 def edit_save(request, id):
     item = Line.objects.get(id=id)
-    form = LineForm(request.POST or None)
+    form = LineForm(request.POST or None, instance=item)
     if form.is_valid():
         form.save()
     messages.success(request, 'Edited')
